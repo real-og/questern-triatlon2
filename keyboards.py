@@ -83,3 +83,12 @@ go_next = ReplyKeyboardMarkup([[buttons.go_next]],
                                      resize_keyboard=True,
                                      one_time_keyboard=True)
 
+
+endend = ReplyKeyboardMarkup([[buttons.finish]],
+                                     resize_keyboard=True,
+                                     one_time_keyboard=True)
+
+gift = ReplyKeyboardMarkup([[buttons.get_present]],
+                                     resize_keyboard=True,
+                                     one_time_keyboard=True)
+
