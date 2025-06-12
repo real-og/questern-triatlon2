@@ -79,3 +79,7 @@ yn = ReplyKeyboardMarkup([[buttons.y, buttons.n]],
                                      resize_keyboard=True,
                                      one_time_keyboard=True)
 
+go_next = ReplyKeyboardMarkup([[buttons.go_next]],
+                                     resize_keyboard=True,
+                                     one_time_keyboard=True)
+

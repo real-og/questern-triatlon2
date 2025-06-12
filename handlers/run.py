@@ -66,8 +66,8 @@ async def send_welcome(message: types.Message, state: FSMContext):
         await message.answer(texts.wrong_btn_input, reply_markup=kb.start_run)
         return
     
-    voice = InputFile("compressed/Бег_1.ogg")  
-    await message.answer_voice(chat_id=message.chat.id, voice=voice)
+    voice = InputFile("audio/Бег_1-новый.ogg")  
+    await message.answer_voice(voice=voice)
     await message.answer(texts.t73, reply_markup=kb.run)
     await State.run1.set()
     utc_plus_3 = timezone(timedelta(hours=3))
@@ -85,19 +85,19 @@ async def send_welcome(message: types.Message, state: FSMContext):
         await message.answer(texts.t75, reply_markup=kb.start_run)
         await State.answ1.set()
     else:
-        message.answer(texts.wrong_btn_input, reply_markup=kb.run)
+        await message.answer(texts.wrong_btn_input, reply_markup=kb.run)
 
 @dp.message_handler(state=State.answ1)
 async def send_welcome(message: types.Message, state: FSMContext):
     if message.text.lower() == answers.answer6.lower():
         with open('images/Буква Р.png', 'rb') as photo:
             await message.answer_photo(photo, caption='Верно 👍 ')
-        voice = InputFile("compressed/Бег_3.ogg")
-        await message.answer_voice(chat_id=message.chat.id, voice=voice)
+        voice = InputFile("audio/Бег_2-новый.ogg")
+        await message.answer_voice(voice=voice)
         message.answer(texts.t73, reply_markup=kb.run)
         await State.run2.set()
     else:
-        message.answer("Неверно(")
+        await message.answer("Неверно(")
 
 
 
@@ -110,19 +110,69 @@ async def send_welcome(message: types.Message, state: FSMContext):
         await message.answer(texts.t77)
         await State.answ2.set()
     else:
-        message.answer(texts.wrong_btn_input, reply_markup=kb.run)
+        await message.answer(texts.wrong_btn_input, reply_markup=kb.run)
 
 @dp.message_handler(state=State.answ2)
 async def send_welcome(message: types.Message, state: FSMContext):
     if message.text.lower() == answers.answer7.lower():
         with open('images/Буква Н.png', 'rb') as photo:
             await message.answer_photo(photo, caption='Верно 👍 ')
-        voice = InputFile("compressed/Бег_3.ogg")
-        await message.answer_voice(chat_id=message.chat.id, voice=voice)
-        message.answer(texts.t73, reply_markup=kb.run)
-        await State.run2.set()
+        message.answer(texts.t107)
+        await State.answ3.set()
     else:
-        message.answer("Неверно(")
+        await message.answer("Неверно(")
+
+
+
+
+
+
+
+@dp.message_handler(state=State.answ3)
+async def send_welcome(message: types.Message, state: FSMContext):
+    if message.text.lower() == answers.answer9.lower():
+        with open('images/Буква И.png', 'rb') as photo:
+            await message.answer_photo(photo, caption='Верно 👍 ')
+        await message.answer(texts.t78, reply_markup=kb.go_next)
+        await State.run3.set()
+    else:
+        await message.answer("Неверно(")
+
+
+
+@dp.message_handler(state=State.run3)
+async def send_welcome(message: types.Message, state: FSMContext):
+    if message.text == buttons.go_next:
+        voice = InputFile("audio/Бег_3-новый.ogg")
+        await message.answer_voice(voice=voice)
+        message.answer(texts.t73, reply_markup=kb.run)
+        await State.run4.set()
+    else:
+        await message.answer(texts.wrong_btn_input, reply_markup=kb.go_next)
+
+
+
+@dp.message_handler(state=State.run4)
+async def send_welcome(message: types.Message, state: FSMContext):
+    if message.text == buttons.need_hint:
+        await message.answer(texts.t79, reply_markup=kb.run)
+        return
+    if message.text == buttons.came:
+        await message.answer(texts.t80)
+        await State.answ4.set()
+    else:
+        await message.answer(texts.wrong_btn_input, reply_markup=kb.run)
+
+
+@dp.message_handler(state=State.answ4)
+async def send_welcome(message: types.Message, state: FSMContext):
+    if message.text.lower() == answers.answer13.lower():
+        with open('images/Буква Т.png', 'rb') as photo:
+            await message.answer_photo(photo, caption='Верно 👍 ')
+        await message.answer(texts.t78, reply_markup=kb.go_next)
+        await State.run5.set()
+    else:
+        await message.answer("Неверно(")
 
 
     

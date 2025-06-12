@@ -4,3 +4,4 @@ from . import admins
 from . import game
 from . import swim
 from . import velo
+from . import run
