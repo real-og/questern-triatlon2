@@ -25,3 +25,12 @@ async def get_sheet(agcm=agcm):
 async def append_user(id, username, phone_number, name, email, datetime_str):
     sheet = await get_sheet()
     await sheet.append_row([str(id), str(username), str(phone_number), str(name), str(email), str(datetime_str)])
+
+
+async def update_cell(id, cell_num, value):
+    sheet = await get_sheet()
+    cell = await sheet.find(str(id))
+    if cell is None:
+        return
+    row_number = cell.row
+    await sheet.update_cell(row_number, cell_num, str(value))

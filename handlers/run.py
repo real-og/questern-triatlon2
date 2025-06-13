@@ -24,6 +24,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
     await State.st1.set()
 
 
+
 @dp.message_handler(state=State.st1)
 async def send_welcome(message: types.Message, state: FSMContext):
     if message.text != buttons.zero_km:
@@ -69,6 +70,10 @@ async def send_welcome(message: types.Message, state: FSMContext):
     await message.answer(texts.t73, reply_markup=kb.run)
     await State.run1.set()
     await state.update_data(start_run_time=int(time.time()))
+    utc_plus_3 = timezone(timedelta(hours=3))
+    now_utc3 = datetime.now(utc_plus_3)
+    datetime_str = now_utc3.strftime("%Y-%m-%d %H:%M:%S")
+    await aiotable.update_cell(message.from_user.id, 10, datetime_str)
 
 
 @dp.message_handler(state=State.run1)
@@ -262,11 +267,15 @@ async def send_welcome(message: types.Message, state: FSMContext):
         await message.answer(texts.t93)
         with open('images/Экипировка.png', 'rb') as photo:
             await message.answer_photo(photo, caption=texts.t94)
-        with open('vv.mp4', 'rb') as video:
-            await message.answer_video(video)
-        # await message.answer('https://youtu.be/tPNoe27_GKg?feature=shared')
+        # with open('vv.mp4', 'rb') as video:
+        #     await message.answer_video(video)
+        await message.answer('https://youtu.be/tPNoe27_GKg?feature=shared')
         await message.answer(texts.t95, reply_markup=kb.gift)
         await State.gift.set()
+        utc_plus_3 = timezone(timedelta(hours=3))
+        now_utc3 = datetime.now(utc_plus_3)
+        datetime_str = now_utc3.strftime("%Y-%m-%d %H:%M:%S")
+        await aiotable.update_cell(message.from_user.id, 11, datetime_str)
     
     else:
         await message.answer(texts.wrong_btn_input, reply_markup=kb.endend)

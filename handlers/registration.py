@@ -7,6 +7,7 @@ from states import State
 import aiotable
 import re
 from datetime import datetime, timedelta, timezone
+from aiogram.types import ReplyKeyboardRemove
 
 
 def is_email(string):
@@ -32,7 +33,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
     if message.contact:
         phone_number = message.contact.phone_number
 
-    await message.answer(texts.t4)
+    await message.answer(texts.t4, reply_markup=ReplyKeyboardRemove())
     await State.enter_email.set()
     await state.update_data(phone_number=phone_number) 
 

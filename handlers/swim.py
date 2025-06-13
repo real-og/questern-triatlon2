@@ -5,6 +5,7 @@ import texts
 import keyboards as kb
 from states import State
 import aiotable
+
 import re
 from datetime import datetime, timedelta, timezone
 import buttons
@@ -24,6 +25,11 @@ async def send_welcome(message: types.Message, state: FSMContext):
     # await message.answer(texts.t15)
     await message.answer(texts.t14, reply_markup=kb.start_swim_terms)
     await State.wait_start_swim_terms.set()
+
+    utc_plus_3 = timezone(timedelta(hours=3))
+    now_utc3 = datetime.now(utc_plus_3)
+    datetime_str = now_utc3.strftime("%Y-%m-%d %H:%M:%S")
+    await aiotable.update_cell(message.from_user.id, 8, datetime_str)
 
 
 @dp.message_handler(state=State.wait_start_swim_terms)
