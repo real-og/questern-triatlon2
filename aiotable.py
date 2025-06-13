@@ -27,6 +27,16 @@ async def append_user(id, username, phone_number, name, email, datetime_str):
     await sheet.append_row([str(id), str(username), str(phone_number), str(name), str(email), str(datetime_str)])
 
 
+async def append_user_strict(id, username, phone_number, name, email, datetime_str):
+    sheet = await get_sheet()
+    # Получаем все строки и находим первую действительно пустую
+    all_values = await sheet.get_all_values()
+    first_empty_row = len(all_values) + 1  # следующая за последней заполненной
+
+    values = [str(id), str(username), str(phone_number), str(name), str(email), str(datetime_str)]
+    await sheet.insert_row(values, first_empty_row)
+
+
 async def update_cell(id, cell_num, value):
     sheet = await get_sheet()
     cell = await sheet.find(str(id))
