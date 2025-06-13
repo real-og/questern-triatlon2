@@ -16,4 +16,4 @@ async def send_welcome(message: types.Message, state: FSMContext):
             await message.answer_photo(photo, caption=texts.t1)
     await message.answer(texts.t2)
     await State.enter_name.set()
-    await State.finish_velo.set()
+    # await State.finish_velo.set()
