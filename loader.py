@@ -12,8 +12,8 @@ SHEET_LINK = str(os.environ.get('SHEET_LINK'))
 GROUP_CHAT_ID_PHOTO = str(os.environ.get('GROUP_CHAT_ID_PHOTO'))
 GROUP_CHAT_ID_FEED = str(os.environ.get('GROUP_CHAT_FEEDBACK'))
 
-# storage = RedisStorage2(db=2)
-storage = MemoryStorage()
+storage = RedisStorage2(db=2)
+
 
 bot = Bot(token=BOT_TOKEN, parse_mode="HTML")
 dp = Dispatcher(bot, storage=storage)
