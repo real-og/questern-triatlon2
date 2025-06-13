@@ -20,8 +20,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
         await message.answer(texts.wrong_btn_input, reply_markup=kb.finish_velo)
         return
 
-    await message.answer(texts.t65)
-    await message.answer(texts.t66, reply_markup=kb.zero_km)
+    await message.answer(texts.t65, reply_markup=kb.zero_km)
     await State.st1.set()
 
 
@@ -43,8 +42,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
     video = InputFile("images/Велик со звуком.mov")
     await message.answer_video(video)
     await message.answer(texts.t68)
-    await message.answer(texts.t69)
-    await message.answer(texts.t70, reply_markup=kb.terms_run)
+    await message.answer(texts.t69, reply_markup=kb.terms_run)
     await State.wait_terms_run.set()
 
 
@@ -53,8 +51,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
     if message.text != buttons.terms_run:
         await message.answer(texts.wrong_btn_input, reply_markup=kb.terms_run)
         return
-    await message.answer(texts.t71)
-    await message.answer(texts.t72, reply_markup=kb.start_run)
+    await message.answer(texts.t71, reply_markup=kb.start_run)
     await State.wait_start_run.set()
 
 
@@ -265,7 +262,9 @@ async def send_welcome(message: types.Message, state: FSMContext):
         await message.answer(texts.t93)
         with open('images/Экипировка.png', 'rb') as photo:
             await message.answer_photo(photo, caption=texts.t94)
-        await message.answer('https://youtu.be/tPNoe27_GKg?feature=shared')
+        with open('vv.mp4', 'rb') as video:
+            await message.answer_video(video)
+        # await message.answer('https://youtu.be/tPNoe27_GKg?feature=shared')
         await message.answer(texts.t95, reply_markup=kb.gift)
         await State.gift.set()
     
@@ -288,6 +287,8 @@ async def send_welcome(message: types.Message, state: FSMContext):
         await message.forward(GROUP_CHAT_ID_FEED)
     except:
         pass
+    await message.answer(texts.t98)
+    
 
     
 

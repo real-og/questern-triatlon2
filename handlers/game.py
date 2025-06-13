@@ -31,10 +31,10 @@ async def send_series(callback: types.CallbackQuery, state: FSMContext):
         pass
     if len(selected_butts) == 3:
         selected_butts = []
-        await callback.message.answer(texts.t10)
-        await callback.message.answer(texts.t11)
-        await callback.message.answer(texts.t12)
-        await callback.message.answer(texts.t13, reply_markup=kb.start)
+        # await callback.message.answer(texts.t10 + '\n' + texts.t11)
+        # await callback.message.answer(texts.t11)
+        # await callback.message.answer(texts.t12)
+        await callback.message.answer(texts.t10, reply_markup=kb.start)
         await State.wait_for_start.set()
 
     await state.update_data(selected_butts=selected_butts) 

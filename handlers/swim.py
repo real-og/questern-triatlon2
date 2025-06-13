@@ -20,9 +20,9 @@ async def send_welcome(message: types.Message, state: FSMContext):
         return
 
     await message.answer(texts.t13_1)
-    await message.answer(texts.t14)
-    await message.answer(texts.t15)
-    await message.answer(texts.t16, reply_markup=kb.start_swim_terms)
+    # await message.answer(texts.t14)
+    # await message.answer(texts.t15)
+    await message.answer(texts.t14, reply_markup=kb.start_swim_terms)
     await State.wait_start_swim_terms.set()
 
 
@@ -32,8 +32,8 @@ async def send_welcome(message: types.Message, state: FSMContext):
         await message.answer(texts.wrong_btn_input, reply_markup=kb.start_swim_terms)
         return
 
-    await message.answer(texts.t17)
-    await message.answer(texts.t18, reply_markup=kb.start_swim)
+    # await message.answer(texts.t17)
+    await message.answer(texts.t17, reply_markup=kb.start_swim)
     await State.wait_start_swim.set()
 
 
@@ -142,9 +142,9 @@ async def send_welcome(message: types.Message, state: FSMContext):
         await message.answer(texts.wrong_btn_input, reply_markup=kb.swim_next)
         return
 
-    await message.answer(texts.t37)
-    await message.answer(texts.t377)
-    await message.answer(texts.t32, reply_markup=kb.found_qr)
+    # await message.answer(texts.t37)
+    # await message.answer(texts.t377)
+    await message.answer(texts.t37, reply_markup=kb.found_qr)
     await State.state7.set()
 
 @dp.message_handler(state=State.state7)
@@ -176,8 +176,8 @@ async def send_welcome(message: types.Message, state: FSMContext):
         await message.answer(texts.wrong_btn_input, reply_markup=kb.swim_next)
         return
 
-    await message.answer(texts.t42)
-    await message.answer(texts.t32, reply_markup=kb.found_qr)
+    # await message.answer(texts.t42)
+    await message.answer(texts.t42, reply_markup=kb.found_qr)
     await State.state9.set()
 
 @dp.message_handler(state=State.state9)
@@ -207,13 +207,12 @@ async def send_welcome(message: types.Message, state: FSMContext):
 
 @dp.message_handler(state=State.state111)
 async def send_welcome(message: types.Message, state: FSMContext):
-    if message.text != buttons.y:
+    if message.text == buttons.y:
         await message.answer(texts.t100, reply_markup=kb.trans)
         await State.state10.set()
-    elif message.text != buttons.n:
-        await message.answer(texts.t101)
-        await message.answer(texts.t102)
-        await message.answer(texts.t103, reply_markup=kb.trans)
+    elif message.text == buttons.n:
+        # await message.answer(texts.t101)
+        await message.answer(texts.t102, reply_markup=kb.trans)
         await State.state10.set()
     else:
         await message.answer(texts.wrong_btn_input, reply_markup=kb.yn)

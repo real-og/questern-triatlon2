@@ -1,5 +1,5 @@
 
-from loader import dp, GROUP_CHAT_ID_PHOTO
+from loader import dp, GROUP_CHAT_ID_PHOTO, bot
 from aiogram import types
 from aiogram.dispatcher import FSMContext
 import texts
@@ -12,15 +12,19 @@ import buttons
 import answers
 import random
 from aiogram.types import InputFile
+import logic
 
 @dp.message_handler(lambda message: str(message.chat.id) == str(GROUP_CHAT_ID_PHOTO), state='*')
 async def handle_admin_reply_ok(message: types.Message):
-    # replied_id = message.reply_to_message.message_id
+    try:
+        if message.text not in ['0', '1','2','3','4']:
+            return
+        if message.reply_to_message:
+            target_id = message.reply_to_message.message_id
+            user_id = logic.cache[target_id]
+            name = logic.photo_names[int(message.text)]
+            with open(name, 'rb') as photo:
+                await bot.send_photo(user_id, photo)
+    except:
+        pass
 
-    # if replied_id in message_links:
-    #     user_id = message_links.pop(replied_id)
-    #     await bot.send_message(user_id, "✅ ваше фото одобрено!")
-    #     await message.reply("Ответ отправлен пользователю.")
-    # else:
-    #     await message.reply("неизвестное сообщение, не найдено в базе.")
-    print(message)

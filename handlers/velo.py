@@ -11,6 +11,7 @@ import buttons
 import answers
 import random
 from aiogram.types import InputFile
+from logic import cache
 
 
 @dp.message_handler(state=State.state10)
@@ -38,25 +39,30 @@ async def send_welcome(message: types.Message, state: FSMContext):
     await State.wait_start_velo.set()
 
 
+
+
+
 @dp.message_handler(state=State.wait_start_velo)
 async def send_welcome(message: types.Message, state: FSMContext):
     if message.text != buttons.start_velo:
         await message.answer(texts.wrong_btn_input, reply_markup=kb.start_velo)
         return
-    with open('images/кошки.png', 'rb') as photo:
-        await message.answer_photo(photo, caption=texts.t54)
-    await message.answer(texts.t55, parse_mode=types.ParseMode.MARKDOWN_V2)
-    await State.wait_photo1.set()
+    with open('images/Конь.png', 'rb') as photo:
+        await message.answer_photo(photo, caption=texts.t544)
+    await message.answer(texts.t5444, parse_mode=types.ParseMode.MARKDOWN_V2)
+    await State.wait_photo2.set()
+
 
 @dp.message_handler(content_types=['any'], state=State.wait_photo1)
 async def handle_photo(message: types.Message):
     if message.photo and (not message.media_group_id):
-        await message.forward(chat_id=GROUP_CHAT_ID_PHOTO)
+        f = await message.forward(chat_id=GROUP_CHAT_ID_PHOTO)
+        cache[f.message_id] = message.from_user.id
         await message.answer(texts.t104)
-        with open('images/мотоцикл.png', 'rb') as photo:
-            await message.answer_photo(photo, caption=texts.t56)
-        await message.answer(texts.t57, parse_mode=types.ParseMode.MARKDOWN_V2)
-        await State.wait_photo2.set()
+        with open('images/кошки.png', 'rb') as photo:
+            await message.answer_photo(photo)
+        await message.answer(texts.t55, parse_mode=types.ParseMode.MARKDOWN_V2)
+        await State.wait_photo4.set()
     else:
         await message.answer(texts.photo_need)
 
@@ -65,10 +71,11 @@ async def handle_photo(message: types.Message):
 # @dp.message_handler(content_types=['photo'], state='*')
 async def handle_photo(message: types.Message):
     if message.photo and (not message.media_group_id):
-        await message.forward(chat_id=GROUP_CHAT_ID_PHOTO)
+        f = await message.forward(chat_id=GROUP_CHAT_ID_PHOTO)
+        cache[f.message_id] = message.from_user.id
         await message.answer(texts.t105)
         with open('images/дом Буркова.png', 'rb') as photo:
-            await message.answer_photo(photo, caption=texts.t58)
+            await message.answer_photo(photo)
         await message.answer(texts.t59, parse_mode=types.ParseMode.MARKDOWN_V2)
         await State.wait_photo3.set()
     else:
@@ -79,12 +86,13 @@ async def handle_photo(message: types.Message):
 # @dp.message_handler(content_types=['photo'], state='*')
 async def handle_photo(message: types.Message):
     if message.photo and (not message.media_group_id):
-        await message.forward(chat_id=GROUP_CHAT_ID_PHOTO)
-        await message.answer(texts.t106)
+        f = await message.forward(chat_id=GROUP_CHAT_ID_PHOTO)
+        cache[f.message_id] = message.from_user.id
+        await message.answer(texts.t104)
         with open('images/сквер виолончель.png', 'rb') as photo:
-            await message.answer_photo(photo, caption=texts.t60)
+            await message.answer_photo(photo)
         await message.answer(texts.t61, parse_mode=types.ParseMode.MARKDOWN_V2)
-        await State.wait_photo4.set()
+        await State.wait_photo1.set()
     else:
         await message.answer(texts.photo_need)
 
@@ -93,7 +101,8 @@ async def handle_photo(message: types.Message):
 # @dp.message_handler(content_types=['photo'], state='*')
 async def handle_photo(message: types.Message):
     if message.photo and (not message.media_group_id):
-        await message.forward(chat_id=GROUP_CHAT_ID_PHOTO)
+        f = await message.forward(chat_id=GROUP_CHAT_ID_PHOTO)
+        cache[f.message_id] = message.from_user.id
         await message.answer(texts.t104)
         with open('images/фонтан.png', 'rb') as photo:
             await message.answer_photo(photo, caption=texts.t62)
@@ -107,8 +116,9 @@ async def handle_photo(message: types.Message):
 # @dp.message_handler(content_types=['photo'], state='*')
 async def handle_photo(message: types.Message):
     if message.photo and (not message.media_group_id):
-        await message.forward(chat_id=GROUP_CHAT_ID_PHOTO)
-        await message.answer(texts.t105)
+        f = await message.forward(chat_id=GROUP_CHAT_ID_PHOTO)
+        cache[f.message_id] = message.from_user.id
+        # await message.answer(texts.t105)
         await message.answer(texts.t64, reply_markup=kb.finish_velo)
         await State.finish_velo.set()
     else:

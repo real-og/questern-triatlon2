@@ -44,10 +44,10 @@ async def send_welcome(message: types.Message, state: FSMContext):
         await message.answer(texts.email_wrong)
         return
     
-    await message.answer(texts.t5)
-    await message.answer(texts.t6)
-    await message.answer(texts.t7)
-    await message.answer(texts.t8)
+    await message.answer(texts.t5 + '\n' + texts.t8)
+    # await message.answer(texts.t6)
+    # await message.answer(texts.t7)
+    # await message.answer(texts.t8)
     await message.answer(texts.t9, reply_markup=kb.get_game_kb([]))
     await State.playing_game.set()
     data = await state.get_data()
