@@ -9,6 +9,11 @@ import texts
 async def send_welcome(message: types.Message, state: FSMContext):
     await message.answer(texts.help)
 
+@dp.message_handler(commands=['terms'], state="*")
+async def send_welcome(message: types.Message, state: FSMContext):
+    with open('terms.pdf', 'rb') as f:
+        await message.answer_document(f)
+
 
 @dp.message_handler(commands=['start'], state="*")
 async def send_welcome(message: types.Message, state: FSMContext):

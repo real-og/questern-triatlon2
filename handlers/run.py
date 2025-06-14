@@ -267,9 +267,9 @@ async def send_welcome(message: types.Message, state: FSMContext):
         await message.answer(texts.t93)
         with open('images/Экипировка.png', 'rb') as photo:
             await message.answer_photo(photo, caption=texts.t94)
-        # with open('vv.mp4', 'rb') as video:
-        #     await message.answer_video(video)
-        await message.answer('https://youtu.be/tPNoe27_GKg?feature=shared')
+        with open('fi.mp4', 'rb') as video:
+            await message.answer_video(video)
+        # await message.answer('https://youtu.be/tPNoe27_GKg?feature=shared')
         await message.answer(texts.t95, reply_markup=kb.gift)
         await State.gift.set()
         utc_plus_3 = timezone(timedelta(hours=3))
