@@ -82,7 +82,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
         await message.answer(texts.t74, reply_markup=kb.run)
         return
     if message.text == buttons.came:
-        await message.answer(texts.t75, reply_markup=kb.start_run)
+        await message.answer(texts.t75)
         await State.answ1.set()
     else:
         await message.answer(texts.wrong_btn_input, reply_markup=kb.run)
