@@ -18,7 +18,7 @@ agcm = gspread_asyncio.AsyncioGspreadClientManager(get_creds)
 async def get_sheet(agcm=agcm):
     agc = await agcm.authorize()
     ss = await agc.open_by_url(link)
-    zero_ws = await ss.get_worksheet(0)
+    zero_ws = await ss.get_worksheet(1)
     return zero_ws
 
 

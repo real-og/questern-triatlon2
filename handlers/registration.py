@@ -59,11 +59,15 @@ async def send_welcome(message: types.Message, state: FSMContext):
 async def send_welcome(message: types.Message, state: FSMContext):
     town = message.text.strip()
     await message.answer(texts.t3_3)
-    await aiotable.update_cell(message.from_user.id, 6, town)
     await State.gg.set()
+    await aiotable.update_cell(message.from_user.id, 6, town)
     # await aiotable.update_cell(message.from_user.id, 11, datetime_str)
 
 
+
+@dp.message_handler(state=State.gg)
+async def send_welcome(message: types.Message, state: FSMContext):
+    await message.answer("Наберись терпения и готовься! Триатлон-квест стартует 27 июня в 10:00 🔥")
 
 # @dp.message_handler(state=State.enter_email)
 # async def send_welcome(message: types.Message, state: FSMContext):
