@@ -1,0 +1,855 @@
+{
+  "ok": true,
+  "result": [
+    {
+      "update_id": 419366907,
+      "message": {
+        "message_id": 12256,
+        "from": {
+          "id": 439664614,
+          "is_bot": false,
+          "first_name": "Анастасия 🐆",
+          "username": "Nastassia_yu",
+          "language_code": "ru"
+        },
+        "chat": {
+          "id": 439664614,
+          "first_name": "Анастасия 🐆",
+          "username": "Nastassia_yu",
+          "type": "private"
+        },
+        "date": 1750504340,
+        "text": "/start",
+        "entities": [
+          {
+            "offset": 0,
+            "length": 6,
+            "type": "bot_command"
+          }
+        ]
+      }
+    },
+    {
+      "update_id": 419366908,
+      "message": {
+        "message_id": 12257,
+        "from": {
+          "id": 5533963669,
+          "is_bot": false,
+          "first_name": "Марина",
+          "language_code": "ru"
+        },
+        "chat": {
+          "id": 5533963669,
+          "first_name": "Марина",
+          "type": "private"
+        },
+        "date": 1750507270,
+        "text": "/start",
+        "entities": [
+          {
+            "offset": 0,
+            "length": 6,
+            "type": "bot_command"
+          }
+        ]
+      }
+    },
+    {
+      "update_id": 419366909,
+      "message": {
+        "message_id": 12258,
+        "from": {
+          "id": 1012583999,
+          "is_bot": false,
+          "first_name": "Olga",
+          "last_name": "S",
+          "username": "SurkovaOA",
+          "language_code": "ru"
+        },
+        "chat": {
+          "id": 1012583999,
+          "first_name": "Olga",
+          "last_name": "S",
+          "username": "SurkovaOA",
+          "type": "private"
+        },
+        "date": 1750507905,
+        "text": "/start",
+        "entities": [
+          {
+            "offset": 0,
+            "length": 6,
+            "type": "bot_command"
+          }
+        ]
+      }
+    },
+    {
+      "update_id": 419366910,
+      "message": {
+        "message_id": 12259,
+        "from": {
+          "id": 966694787,
+          "is_bot": false,
+          "first_name": "Максим Б.",
+          "username": "MaksimB96",
+          "language_code": "ru"
+        },
+        "chat": {
+          "id": 966694787,
+          "first_name": "Максим Б.",
+          "username": "MaksimB96",
+          "type": "private"
+        },
+        "date": 1750523171,
+        "text": "/start",
+        "entities": [
+          {
+            "offset": 0,
+            "length": 6,
+            "type": "bot_command"
+          }
+        ]
+      }
+    },
+    {
+      "update_id": 419366911,
+      "message": {
+        "message_id": 12260,
+        "from": {
+          "id": 439664614,
+          "is_bot": false,
+          "first_name": "Анастасия 🐆",
+          "username": "Nastassia_yu",
+          "language_code": "ru"
+        },
+        "chat": {
+          "id": 439664614,
+          "first_name": "Анастасия 🐆",
+          "username": "Nastassia_yu",
+          "type": "private"
+        },
+        "date": 1750536682,
+        "text": "/start",
+        "entities": [
+          {
+            "offset": 0,
+            "length": 6,
+            "type": "bot_command"
+          }
+        ]
+      }
+    },
+    {
+      "update_id": 419366912,
+      "message": {
+        "message_id": 12261,
+        "from": {
+          "id": 473228668,
+          "is_bot": false,
+          "first_name": "Анастасия",
+          "last_name": "Елфимова",
+          "username": "aelfimova",
+          "language_code": "ru",
+          "is_premium": true
+        },
+        "chat": {
+          "id": 473228668,
+          "first_name": "Анастасия",
+          "last_name": "Елфимова",
+          "username": "aelfimova",
+          "type": "private"
+        },
+        "date": 1750574279,
+        "text": "/start",
+        "entities": [
+          {
+            "offset": 0,
+            "length": 6,
+            "type": "bot_command"
+          }
+        ]
+      }
+    },
+    {
+      "update_id": 419366913,
+      "message": {
+        "message_id": 12262,
+        "from": {
+          "id": 741188141,
+          "is_bot": false,
+          "first_name": "vasya ♡",
+          "username": "esenina_vv",
+          "language_code": "ru",
+          "is_premium": true
+        },
+        "chat": {
+          "id": 741188141,
+          "first_name": "vasya ♡",
+          "username": "esenina_vv",
+          "type": "private"
+        },
+        "date": 1750586007,
+        "text": "/start",
+        "entities": [
+          {
+            "offset": 0,
+            "length": 6,
+            "type": "bot_command"
+          }
+        ]
+      }
+    },
+    {
+      "update_id": 419366914,
+      "message": {
+        "message_id": 12263,
+        "from": {
+          "id": 201661532,
+          "is_bot": false,
+          "first_name": "Olga",
+          "last_name": "T",
+          "username": "oturova",
+          "language_code": "ru"
+        },
+        "chat": {
+          "id": 201661532,
+          "first_name": "Olga",
+          "last_name": "T",
+          "username": "oturova",
+          "type": "private"
+        },
+        "date": 1750586046,
+        "text": "/start",
+        "entities": [
+          {
+            "offset": 0,
+            "length": 6,
+            "type": "bot_command"
+          }
+        ]
+      }
+    },
+    {
+      "update_id": 419366915,
+      "message": {
+        "message_id": 12264,
+        "from": {
+          "id": 201661532,
+          "is_bot": false,
+          "first_name": "Olga",
+          "last_name": "T",
+          "username": "oturova",
+          "language_code": "ru"
+        },
+        "chat": {
+          "id": 201661532,
+          "first_name": "Olga",
+          "last_name": "T",
+          "username": "oturova",
+          "type": "private"
+        },
+        "date": 1750586056,
+        "text": "/start",
+        "entities": [
+          {
+            "offset": 0,
+            "length": 6,
+            "type": "bot_command"
+          }
+        ]
+      }
+    },
+    {
+      "update_id": 419366916,
+      "message": {
+        "message_id": 12265,
+        "from": {
+          "id": 201661532,
+          "is_bot": false,
+          "first_name": "Olga",
+          "last_name": "T",
+          "username": "oturova",
+          "language_code": "ru"
+        },
+        "chat": {
+          "id": 201661532,
+          "first_name": "Olga",
+          "last_name": "T",
+          "username": "oturova",
+          "type": "private"
+        },
+        "date": 1750586061,
+        "text": "/terms",
+        "entities": [
+          {
+            "offset": 0,
+            "length": 6,
+            "type": "bot_command"
+          }
+        ]
+      }
+    },
+    {
+      "update_id": 419366917,
+      "my_chat_member": {
+        "chat": {
+          "id": 201661532,
+          "first_name": "Olga",
+          "last_name": "T",
+          "username": "oturova",
+          "type": "private"
+        },
+        "from": {
+          "id": 201661532,
+          "is_bot": false,
+          "first_name": "Olga",
+          "last_name": "T",
+          "username": "oturova",
+          "language_code": "ru"
+        },
+        "date": 1750586066,
+        "old_chat_member": {
+          "user": {
+            "id": 7029393351,
+            "is_bot": true,
+            "first_name": "Триатлон-квест",
+            "username": "triathlonquestbot"
+          },
+          "status": "member"
+        },
+        "new_chat_member": {
+          "user": {
+            "id": 7029393351,
+            "is_bot": true,
+            "first_name": "Триатлон-квест",
+            "username": "triathlonquestbot"
+          },
+          "status": "kicked",
+          "until_date": 0
+        }
+      }
+    },
+    {
+      "update_id": 419366918,
+      "my_chat_member": {
+        "chat": {
+          "id": 201661532,
+          "first_name": "Olga",
+          "last_name": "T",
+          "username": "oturova",
+          "type": "private"
+        },
+        "from": {
+          "id": 201661532,
+          "is_bot": false,
+          "first_name": "Olga",
+          "last_name": "T",
+          "username": "oturova",
+          "language_code": "ru"
+        },
+        "date": 1750586073,
+        "old_chat_member": {
+          "user": {
+            "id": 7029393351,
+            "is_bot": true,
+            "first_name": "Триатлон-квест",
+            "username": "triathlonquestbot"
+          },
+          "status": "kicked",
+          "until_date": 0
+        },
+        "new_chat_member": {
+          "user": {
+            "id": 7029393351,
+            "is_bot": true,
+            "first_name": "Триатлон-квест",
+            "username": "triathlonquestbot"
+          },
+          "status": "member"
+        }
+      }
+    },
+    {
+      "update_id": 419366919,
+      "message": {
+        "message_id": 12266,
+        "from": {
+          "id": 201661532,
+          "is_bot": false,
+          "first_name": "Olga",
+          "last_name": "T",
+          "username": "oturova",
+          "language_code": "ru"
+        },
+        "chat": {
+          "id": 201661532,
+          "first_name": "Olga",
+          "last_name": "T",
+          "username": "oturova",
+          "type": "private"
+        },
+        "date": 1750586073,
+        "text": "/start",
+        "entities": [
+          {
+            "offset": 0,
+            "length": 6,
+            "type": "bot_command"
+          }
+        ]
+      }
+    },
+    {
+      "update_id": 419366920,
+      "message": {
+        "message_id": 12267,
+        "from": {
+          "id": 201661532,
+          "is_bot": false,
+          "first_name": "Olga",
+          "last_name": "T",
+          "username": "oturova",
+          "language_code": "ru"
+        },
+        "chat": {
+          "id": 201661532,
+          "first_name": "Olga",
+          "last_name": "T",
+          "username": "oturova",
+          "type": "private"
+        },
+        "date": 1750586081,
+        "text": "/start",
+        "entities": [
+          {
+            "offset": 0,
+            "length": 6,
+            "type": "bot_command"
+          }
+        ]
+      }
+    },
+    {
+      "update_id": 419366921,
+      "my_chat_member": {
+        "chat": {
+          "id": 201661532,
+          "first_name": "Olga",
+          "last_name": "T",
+          "username": "oturova",
+          "type": "private"
+        },
+        "from": {
+          "id": 201661532,
+          "is_bot": false,
+          "first_name": "Olga",
+          "last_name": "T",
+          "username": "oturova",
+          "language_code": "ru"
+        },
+        "date": 1750586124,
+        "old_chat_member": {
+          "user": {
+            "id": 7029393351,
+            "is_bot": true,
+            "first_name": "Триатлон-квест",
+            "username": "triathlonquestbot"
+          },
+          "status": "member"
+        },
+        "new_chat_member": {
+          "user": {
+            "id": 7029393351,
+            "is_bot": true,
+            "first_name": "Триатлон-квест",
+            "username": "triathlonquestbot"
+          },
+          "status": "kicked",
+          "until_date": 0
+        }
+      }
+    },
+    {
+      "update_id": 419366922,
+      "my_chat_member": {
+        "chat": {
+          "id": 201661532,
+          "first_name": "Olga",
+          "last_name": "T",
+          "username": "oturova",
+          "type": "private"
+        },
+        "from": {
+          "id": 201661532,
+          "is_bot": false,
+          "first_name": "Olga",
+          "last_name": "T",
+          "username": "oturova",
+          "language_code": "ru"
+        },
+        "date": 1750586139,
+        "old_chat_member": {
+          "user": {
+            "id": 7029393351,
+            "is_bot": true,
+            "first_name": "Триатлон-квест",
+            "username": "triathlonquestbot"
+          },
+          "status": "kicked",
+          "until_date": 0
+        },
+        "new_chat_member": {
+          "user": {
+            "id": 7029393351,
+            "is_bot": true,
+            "first_name": "Триатлон-квест",
+            "username": "triathlonquestbot"
+          },
+          "status": "member"
+        }
+      }
+    },
+    {
+      "update_id": 419366923,
+      "message": {
+        "message_id": 12268,
+        "from": {
+          "id": 201661532,
+          "is_bot": false,
+          "first_name": "Olga",
+          "last_name": "T",
+          "username": "oturova",
+          "language_code": "ru"
+        },
+        "chat": {
+          "id": 201661532,
+          "first_name": "Olga",
+          "last_name": "T",
+          "username": "oturova",
+          "type": "private"
+        },
+        "date": 1750586139,
+        "text": "/start",
+        "entities": [
+          {
+            "offset": 0,
+            "length": 6,
+            "type": "bot_command"
+          }
+        ]
+      }
+    },
+    {
+      "update_id": 419366924,
+      "my_chat_member": {
+        "chat": {
+          "id": 201661532,
+          "first_name": "Olga",
+          "last_name": "T",
+          "username": "oturova",
+          "type": "private"
+        },
+        "from": {
+          "id": 201661532,
+          "is_bot": false,
+          "first_name": "Olga",
+          "last_name": "T",
+          "username": "oturova",
+          "language_code": "ru"
+        },
+        "date": 1750586142,
+        "old_chat_member": {
+          "user": {
+            "id": 7029393351,
+            "is_bot": true,
+            "first_name": "Триатлон-квест",
+            "username": "triathlonquestbot"
+          },
+          "status": "member"
+        },
+        "new_chat_member": {
+          "user": {
+            "id": 7029393351,
+            "is_bot": true,
+            "first_name": "Триатлон-квест",
+            "username": "triathlonquestbot"
+          },
+          "status": "kicked",
+          "until_date": 0
+        }
+      }
+    },
+    {
+      "update_id": 419366925,
+      "message": {
+        "message_id": 12269,
+        "from": {
+          "id": 520251635,
+          "is_bot": false,
+          "first_name": "Lenk |",
+          "last_name": "Выездные квесты",
+          "username": "lenkkey",
+          "language_code": "ru",
+          "is_premium": true
+        },
+        "chat": {
+          "id": 520251635,
+          "first_name": "Lenk |",
+          "last_name": "Выездные квесты",
+          "username": "lenkkey",
+          "type": "private"
+        },
+        "date": 1750586664,
+        "text": "/start",
+        "entities": [
+          {
+            "offset": 0,
+            "length": 6,
+            "type": "bot_command"
+          }
+        ]
+      }
+    },
+    {
+      "update_id": 419366926,
+      "message": {
+        "message_id": 12270,
+        "from": {
+          "id": 520251635,
+          "is_bot": false,
+          "first_name": "Lenk |",
+          "last_name": "Выездные квесты",
+          "username": "lenkkey",
+          "language_code": "ru",
+          "is_premium": true
+        },
+        "chat": {
+          "id": 520251635,
+          "first_name": "Lenk |",
+          "last_name": "Выездные квесты",
+          "username": "lenkkey",
+          "type": "private"
+        },
+        "date": 1750586757,
+        "text": "/start",
+        "entities": [
+          {
+            "offset": 0,
+            "length": 6,
+            "type": "bot_command"
+          }
+        ]
+      }
+    },
+    {
+      "update_id": 419366927,
+      "message": {
+        "message_id": 12271,
+        "from": {
+          "id": 520251635,
+          "is_bot": false,
+          "first_name": "Lenk |",
+          "last_name": "Выездные квесты",
+          "username": "lenkkey",
+          "language_code": "ru",
+          "is_premium": true
+        },
+        "chat": {
+          "id": 520251635,
+          "first_name": "Lenk |",
+          "last_name": "Выездные квесты",
+          "username": "lenkkey",
+          "type": "private"
+        },
+        "date": 1750586914,
+        "text": "/start",
+        "entities": [
+          {
+            "offset": 0,
+            "length": 6,
+            "type": "bot_command"
+          }
+        ]
+      }
+    },
+    {
+      "update_id": 419366928,
+      "message": {
+        "message_id": 12272,
+        "from": {
+          "id": 1140172060,
+          "is_bot": false,
+          "first_name": "Севостьянова",
+          "last_name": "Наталья",
+          "language_code": "ru"
+        },
+        "chat": {
+          "id": 1140172060,
+          "first_name": "Севостьянова",
+          "last_name": "Наталья",
+          "type": "private"
+        },
+        "date": 1750586960,
+        "text": "/start",
+        "entities": [
+          {
+            "offset": 0,
+            "length": 6,
+            "type": "bot_command"
+          }
+        ]
+      }
+    },
+    {
+      "update_id": 419366929,
+      "message": {
+        "message_id": 12273,
+        "from": {
+          "id": 1140172060,
+          "is_bot": false,
+          "first_name": "Севостьянова",
+          "last_name": "Наталья",
+          "language_code": "ru"
+        },
+        "chat": {
+          "id": 1140172060,
+          "first_name": "Севостьянова",
+          "last_name": "Наталья",
+          "type": "private"
+        },
+        "date": 1750586972,
+        "text": "/terms",
+        "entities": [
+          {
+            "offset": 0,
+            "length": 6,
+            "type": "bot_command"
+          }
+        ]
+      }
+    },
+    {
+      "update_id": 419366930,
+      "message": {
+        "message_id": 12274,
+        "from": {
+          "id": 343367235,
+          "is_bot": false,
+          "first_name": "Сергей",
+          "last_name": "Макеенков",
+          "username": "makeenkov_sergey",
+          "language_code": "ru",
+          "is_premium": true
+        },
+        "chat": {
+          "id": 343367235,
+          "first_name": "Сергей",
+          "last_name": "Макеенков",
+          "username": "makeenkov_sergey",
+          "type": "private"
+        },
+        "date": 1750587194,
+        "text": "/start",
+        "entities": [
+          {
+            "offset": 0,
+            "length": 6,
+            "type": "bot_command"
+          }
+        ]
+      }
+    },
+    {
+      "update_id": 419366931,
+      "message": {
+        "message_id": 12275,
+        "from": {
+          "id": 343367235,
+          "is_bot": false,
+          "first_name": "Сергей",
+          "last_name": "Макеенков",
+          "username": "makeenkov_sergey",
+          "language_code": "ru",
+          "is_premium": true
+        },
+        "chat": {
+          "id": 343367235,
+          "first_name": "Сергей",
+          "last_name": "Макеенков",
+          "username": "makeenkov_sergey",
+          "type": "private"
+        },
+        "date": 1750587205,
+        "text": "/start",
+        "entities": [
+          {
+            "offset": 0,
+            "length": 6,
+            "type": "bot_command"
+          }
+        ]
+      }
+    },
+    {
+      "update_id": 419366932,
+      "message": {
+        "message_id": 12276,
+        "from": {
+          "id": 520251635,
+          "is_bot": false,
+          "first_name": "Lenk |",
+          "last_name": "Выездные квесты",
+          "username": "lenkkey",
+          "language_code": "ru",
+          "is_premium": true
+        },
+        "chat": {
+          "id": 520251635,
+          "first_name": "Lenk |",
+          "last_name": "Выездные квесты",
+          "username": "lenkkey",
+          "type": "private"
+        },
+        "date": 1750587466,
+        "text": "/start",
+        "entities": [
+          {
+            "offset": 0,
+            "length": 6,
+            "type": "bot_command"
+          }
+        ]
+      }
+    },
+    {
+      "update_id": 419366933,
+      "message": {
+        "message_id": 12277,
+        "from": {
+          "id": 6150574145,
+          "is_bot": false,
+          "first_name": "джнея",
+          "username": "bot_dealla",
+          "language_code": "ru"
+        },
+        "chat": {
+          "id": 6150574145,
+          "first_name": "джнея",
+          "username": "bot_dealla",
+          "type": "private"
+        },
+        "date": 1750588327,
+        "text": "/start",
+        "entities": [
+          {
+            "offset": 0,
+            "length": 6,
+            "type": "bot_command"
+          }
+        ]
+      }
+    }
+  ]
+}
