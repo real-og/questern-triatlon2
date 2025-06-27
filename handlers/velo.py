@@ -71,7 +71,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
     if message.text != buttons.start_velo:
         await message.answer(texts.wrong_btn_input, reply_markup=kb.start_velo)
         return
-    with open('images_ekb/pole.png', 'rb') as photo:
+    with open('images_ekb/pole.PNG', 'rb') as photo:
         await message.answer_photo(photo, caption=texts.t544)
     await message.answer(texts.t5444, parse_mode=types.ParseMode.MARKDOWN_V2)
     await State.wait_photo2.set()
@@ -87,7 +87,7 @@ async def handle_photo(message: types.Message):
         f = await message.forward(chat_id=GROUP_CHAT_ID_PHOTO)
         cache[f.message_id] = message.from_user.id
         await message.answer(texts.t104)
-        with open('images_ekb/tower.jpg', 'rb') as photo:
+        with open('images_ekb/tower.JPG', 'rb') as photo:
             await message.answer_photo(photo)
         await message.answer(texts.t55, parse_mode=types.ParseMode.MARKDOWN_V2)
         await State.wait_photo4.set()
@@ -107,7 +107,7 @@ async def handle_photo(message: types.Message):
         f = await message.forward(chat_id=GROUP_CHAT_ID_PHOTO)
         cache[f.message_id] = message.from_user.id
         await message.answer(texts.t105)
-        with open('images_ekb/hole.png', 'rb') as photo:
+        with open('images_ekb/hole.PNG', 'rb') as photo:
             await message.answer_photo(photo)
         await message.answer(texts.t59, parse_mode=types.ParseMode.MARKDOWN_V2)
         await State.wait_photo3.set()
@@ -126,7 +126,7 @@ async def handle_photo(message: types.Message):
         f = await message.forward(chat_id=GROUP_CHAT_ID_PHOTO)
         cache[f.message_id] = message.from_user.id
         await message.answer(texts.t104)
-        with open('images_ekb/sevastian.jpg', 'rb') as photo:
+        with open('images_ekb/sevastian.JPG', 'rb') as photo:
             await message.answer_photo(photo)
         await message.answer(texts.t61, parse_mode=types.ParseMode.MARKDOWN_V2)
         await State.wait_photo1.set()
