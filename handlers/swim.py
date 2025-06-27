@@ -26,10 +26,6 @@ async def send_welcome(message: types.Message, state: FSMContext):
     await message.answer(texts.t14, reply_markup=kb.start_swim_terms)
     await State.wait_start_swim_terms.set()
 
-    utc_plus_3 = timezone(timedelta(hours=3))
-    now_utc3 = datetime.now(utc_plus_3)
-    datetime_str = now_utc3.strftime("%Y-%m-%d %H:%M:%S")
-    await aiotable.update_cell(message.from_user.id, 8, datetime_str)
 
 
 @dp.message_handler(state=State.wait_start_swim_terms)
@@ -49,8 +45,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
         await message.answer(texts.wrong_btn_input, reply_markup=kb.start_swim)
         return
 
-    await message.answer(texts.t19)
-    await message.answer(texts.t20, reply_markup=kb.found_qr)
+    await message.answer(texts.t19, reply_markup=kb.found_qr)
     await State.state1.set()
 
 @dp.message_handler(state=State.state1)
@@ -74,6 +69,11 @@ async def send_welcome(message: types.Message, state: FSMContext):
     await message.answer(texts.t24, reply_markup=kb.swim_next)
     await State.state2.set()
 
+    utc_plus_3 = timezone(timedelta(hours=3))
+    now_utc3 = datetime.now(utc_plus_3)
+    datetime_str = now_utc3.strftime("%Y-%m-%d %H:%M:%S")
+    await aiotable.update_cell(message.from_user.id, 9, datetime_str)
+
 
 
 @dp.message_handler(state=State.state2)
@@ -82,8 +82,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
         await message.answer(texts.wrong_btn_input, reply_markup=kb.swim_next)
         return
 
-    await message.answer(texts.t25)
-    await message.answer(texts.t26, reply_markup=kb.found_qr)
+    await message.answer(texts.t25, reply_markup=kb.found_qr)
     await State.state3.set()
 
 @dp.message_handler(state=State.state3)
@@ -106,6 +105,10 @@ async def send_welcome(message: types.Message, state: FSMContext):
         await message.answer_photo(photo, caption=texts.t29)
     await message.answer(texts.t30, reply_markup=kb.swim_next)
     await State.state4.set()
+    utc_plus_3 = timezone(timedelta(hours=3))
+    now_utc3 = datetime.now(utc_plus_3)
+    datetime_str = now_utc3.strftime("%Y-%m-%d %H:%M:%S")
+    await aiotable.update_cell(message.from_user.id, 10, datetime_str)
 
 
 
@@ -115,8 +118,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
         await message.answer(texts.wrong_btn_input, reply_markup=kb.swim_next)
         return
 
-    await message.answer(texts.t31)
-    await message.answer(texts.t32, reply_markup=kb.found_qr)
+    await message.answer(texts.t31, reply_markup=kb.found_qr)
     await State.state5.set()
 
 @dp.message_handler(state=State.state5)
@@ -139,6 +141,10 @@ async def send_welcome(message: types.Message, state: FSMContext):
         await message.answer_photo(photo, caption=texts.t35)
     await message.answer(texts.t36, reply_markup=kb.swim_next)
     await State.state6.set()
+    utc_plus_3 = timezone(timedelta(hours=3))
+    now_utc3 = datetime.now(utc_plus_3)
+    datetime_str = now_utc3.strftime("%Y-%m-%d %H:%M:%S")
+    await aiotable.update_cell(message.from_user.id, 11, datetime_str)
 
 
 
@@ -148,8 +154,6 @@ async def send_welcome(message: types.Message, state: FSMContext):
         await message.answer(texts.wrong_btn_input, reply_markup=kb.swim_next)
         return
 
-    # await message.answer(texts.t37)
-    # await message.answer(texts.t377)
     await message.answer(texts.t37, reply_markup=kb.found_qr)
     await State.state7.set()
 
@@ -173,6 +177,10 @@ async def send_welcome(message: types.Message, state: FSMContext):
         await message.answer_photo(photo, caption=texts.t40)
     await message.answer(texts.t41, reply_markup=kb.swim_next)
     await State.state8.set()
+    utc_plus_3 = timezone(timedelta(hours=3))
+    now_utc3 = datetime.now(utc_plus_3)
+    datetime_str = now_utc3.strftime("%Y-%m-%d %H:%M:%S")
+    await aiotable.update_cell(message.from_user.id, 12, datetime_str)
 
 
 
@@ -207,8 +215,10 @@ async def send_welcome(message: types.Message, state: FSMContext):
         await message.answer_photo(photo, caption=texts.t46)
     await message.answer(texts.t47, reply_markup=kb.yn)
     await State.state111.set()
-    # await message.answer(texts.t48, reply_markup=kb.trans)
-    # await State.state10.set()
+    utc_plus_3 = timezone(timedelta(hours=3))
+    now_utc3 = datetime.now(utc_plus_3)
+    datetime_str = now_utc3.strftime("%Y-%m-%d %H:%M:%S")
+    await aiotable.update_cell(message.from_user.id, 13, datetime_str)
 
 
 @dp.message_handler(state=State.state111)

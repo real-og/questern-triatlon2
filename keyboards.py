@@ -75,6 +75,10 @@ run = ReplyKeyboardMarkup([[buttons.came, buttons.need_hint]],
                                      resize_keyboard=True,
                                      one_time_keyboard=True)
 
+came = ReplyKeyboardMarkup([[buttons.came]],
+                                     resize_keyboard=True,
+                                     one_time_keyboard=True)
+
 yn = ReplyKeyboardMarkup([[buttons.y, buttons.n]],
                                      resize_keyboard=True,
                                      one_time_keyboard=True)
@@ -92,3 +96,10 @@ gift = ReplyKeyboardMarkup([[buttons.get_present]],
                                      resize_keyboard=True,
                                      one_time_keyboard=True)
 
+early_finish = ReplyKeyboardMarkup([[buttons.end_early, buttons.continue_quest]],
+                                     resize_keyboard=True,
+                                     one_time_keyboard=True)
+
+see_ammo = ReplyKeyboardMarkup([[buttons.see_ammo]],
+                                     resize_keyboard=True,
+                                     one_time_keyboard=True)

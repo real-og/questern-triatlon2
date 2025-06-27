@@ -69,3 +69,7 @@ class State(StatesGroup):
     feed = State()
     choose_town = State()
     gg = State()
+    choose_option = State()
+    run22 = State()
+    ammo = State()
+    after_end = State()

@@ -12,23 +12,25 @@ import buttons
 import answers
 import random
 from aiogram.types import InputFile
+from aiogram.types import ReplyKeyboardRemove
+from aiogram import types
 
 
-@dp.message_handler(state=State.finish_velo)
-async def send_welcome(message: types.Message, state: FSMContext):
-    if message.text != buttons.end_velo:
-        await message.answer(texts.wrong_btn_input, reply_markup=kb.finish_velo)
-        return
+# @dp.message_handler(state=State.finish_velo)
+# async def send_welcome(message: types.Message, state: FSMContext):
+#     if message.text != buttons.end_velo:
+#         await message.answer(texts.wrong_btn_input, reply_markup=kb.finish_velo)
+#         return
 
-    await message.answer(texts.t65, reply_markup=kb.zero_km)
-    await State.st1.set()
+#     await message.answer(texts.t65, reply_markup=kb.zero_km)
+#     await State.st1.set()
 
 
 
 @dp.message_handler(state=State.st1)
 async def send_welcome(message: types.Message, state: FSMContext):
-    if message.text != buttons.zero_km:
-        await message.answer(texts.wrong_btn_input, reply_markup=kb.zero_km)
+    if message.text != buttons.came:
+        await message.answer(texts.wrong_btn_input, reply_markup=kb.came)
         return
 
     await message.answer(texts.t67, reply_markup=kb.make_velo)
@@ -65,7 +67,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
         await message.answer(texts.wrong_btn_input, reply_markup=kb.start_run)
         return
     
-    voice = InputFile("audio/Бег_1-новый.ogg")  
+    voice = InputFile("audio_ekb/voice1.ogg")  
     await message.answer_voice(voice=voice)
     await message.answer(texts.t73, reply_markup=kb.run)
     await State.run1.set()
@@ -73,7 +75,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
     utc_plus_3 = timezone(timedelta(hours=3))
     now_utc3 = datetime.now(utc_plus_3)
     datetime_str = now_utc3.strftime("%Y-%m-%d %H:%M:%S")
-    await aiotable.update_cell(message.from_user.id, 10, datetime_str)
+    await aiotable.update_cell(message.from_user.id, 19, datetime_str)
 
 
 @dp.message_handler(state=State.run1)
@@ -87,17 +89,35 @@ async def send_welcome(message: types.Message, state: FSMContext):
     else:
         await message.answer(texts.wrong_btn_input, reply_markup=kb.run)
 
+
+
 @dp.message_handler(state=State.answ1)
 async def send_welcome(message: types.Message, state: FSMContext):
     if message.text.lower() == answers.answer6.lower():
         with open('images/Буква1.png', 'rb') as photo:
             await message.answer_photo(photo, caption='Верно 👍 ')
-        voice = InputFile("audio/Бег_2-новый.ogg")
+        # voice = InputFile("audio_ekb/voice2.ogg")
+        # await message.answer_voice(voice=voice)
+        await message.answer(texts.t78, reply_markup=kb.go_next)
+        await State.run22.set()
+        utc_plus_3 = timezone(timedelta(hours=3))
+        now_utc3 = datetime.now(utc_plus_3)
+        datetime_str = now_utc3.strftime("%Y-%m-%d %H:%M:%S")
+        await aiotable.update_cell(message.from_user.id, 20, datetime_str)
+    else:
+        texts.wrong_run
+        await message.answer(texts.wrong_run)
+
+
+@dp.message_handler(state=State.run22)
+async def send_welcome(message: types.Message, state: FSMContext):
+    if message.text == buttons.go_next:
+        voice = InputFile("audio_ekb/voice2.ogg")
         await message.answer_voice(voice=voice)
         await message.answer(texts.t73, reply_markup=kb.run)
         await State.run2.set()
     else:
-        await message.answer("Неверно(")
+        await message.answer(texts.wrong_btn_input, reply_markup=kb.go_next)
 
 
 
@@ -117,10 +137,14 @@ async def send_welcome(message: types.Message, state: FSMContext):
     if message.text.lower() == answers.answer7.lower():
         with open('images/Буква Н.png', 'rb') as photo:
             await message.answer_photo(photo, caption='Верно 👍 ')
-        await message.answer(texts.t107)
+        await message.answer(texts.t107, parse_mode=types.ParseMode.MARKDOWN_V2)
         await State.answ3.set()
+        utc_plus_3 = timezone(timedelta(hours=3))
+        now_utc3 = datetime.now(utc_plus_3)
+        datetime_str = now_utc3.strftime("%Y-%m-%d %H:%M:%S")
+        await aiotable.update_cell(message.from_user.id, 21, datetime_str)
     else:
-        await message.answer("Неверно(")
+        await message.answer(texts.wrong_run)
 
 
 
@@ -130,20 +154,25 @@ async def send_welcome(message: types.Message, state: FSMContext):
 
 @dp.message_handler(state=State.answ3)
 async def send_welcome(message: types.Message, state: FSMContext):
-    if message.text.lower() == answers.answer9.lower():
+    if message.text.upper() in answers.answer9:
         with open('images/Буква И.png', 'rb') as photo:
             await message.answer_photo(photo, caption='Верно 👍 ')
         await message.answer(texts.t78, reply_markup=kb.go_next)
         await State.run3.set()
+        utc_plus_3 = timezone(timedelta(hours=3))
+        now_utc3 = datetime.now(utc_plus_3)
+        datetime_str = now_utc3.strftime("%Y-%m-%d %H:%M:%S")
+        await aiotable.update_cell(message.from_user.id, 22, datetime_str)
+        
     else:
-        await message.answer("Неверно(")
+        await message.answer(texts.wrong_run)
 
 
 
 @dp.message_handler(state=State.run3)
 async def send_welcome(message: types.Message, state: FSMContext):
     if message.text == buttons.go_next:
-        voice = InputFile("audio/Бег_3-новый.ogg")
+        voice = InputFile("audio_ekb/voice3.ogg")
         await message.answer_voice(voice=voice)
         await message.answer(texts.t73, reply_markup=kb.run)
         await State.run4.set()
@@ -166,19 +195,24 @@ async def send_welcome(message: types.Message, state: FSMContext):
 
 @dp.message_handler(state=State.answ4)
 async def send_welcome(message: types.Message, state: FSMContext):
-    if message.text.lower() == answers.answer13.lower():
+    if message.text.lower() in answers.answer13:
         with open('images/Буква Т.png', 'rb') as photo:
             await message.answer_photo(photo, caption='Верно 👍 ')
         await message.answer(texts.t78, reply_markup=kb.go_next)
         await State.run5.set()
+        utc_plus_3 = timezone(timedelta(hours=3))
+        now_utc3 = datetime.now(utc_plus_3)
+        datetime_str = now_utc3.strftime("%Y-%m-%d %H:%M:%S")
+        await aiotable.update_cell(message.from_user.id, 23, datetime_str)
+
     else:
-        await message.answer("Неверно(")
+        await message.answer(texts.wrong_run)
 
 
 @dp.message_handler(state=State.run5)
 async def send_welcome(message: types.Message, state: FSMContext):
     if message.text == buttons.go_next:
-        voice = InputFile("audio/Бег_4-новый.ogg")
+        voice = InputFile("audio_ekb/voice4.ogg")
         await message.answer_voice(voice=voice)
         await message.answer(texts.t73, reply_markup=kb.run)
         await State.run6.set()
@@ -205,14 +239,18 @@ async def send_welcome(message: types.Message, state: FSMContext):
             await message.answer_photo(photo, caption='Верно 👍 ')
         await message.answer(texts.t78, reply_markup=kb.go_next)
         await State.run7.set()
+        utc_plus_3 = timezone(timedelta(hours=3))
+        now_utc3 = datetime.now(utc_plus_3)
+        datetime_str = now_utc3.strftime("%Y-%m-%d %H:%M:%S")
+        await aiotable.update_cell(message.from_user.id, 24, datetime_str)
     else:
-        await message.answer("Неверно(")
+        await message.answer(texts.wrong_run)
 
 
 @dp.message_handler(state=State.run7)
 async def send_welcome(message: types.Message, state: FSMContext):
     if message.text == buttons.go_next:
-        voice = InputFile("audio/Бег_5.ogg")
+        voice = InputFile("audio_ekb/voice5_1.ogg")
         await message.answer_voice(voice=voice)
         await message.answer(texts.t73, reply_markup=kb.run)
         await State.run8.set()
@@ -238,10 +276,14 @@ async def send_welcome(message: types.Message, state: FSMContext):
     if message.text.lower() == answers.answer14.lower():
         with open('images/Буква С.png', 'rb') as photo:
             await message.answer_photo(photo, caption='Верно 👍 ')
-        await message.answer(texts.t88)
+        await message.answer(texts.t88, reply_markup=ReplyKeyboardRemove())
         await State.answ7.set()
+        utc_plus_3 = timezone(timedelta(hours=3))
+        now_utc3 = datetime.now(utc_plus_3)
+        datetime_str = now_utc3.strftime("%Y-%m-%d %H:%M:%S")
+        await aiotable.update_cell(message.from_user.id, 25, datetime_str)
     else:
-        await message.answer("Неверно(")
+        await message.answer(texts.wrong_run)
 
 
 @dp.message_handler(state=State.answ7)
@@ -249,7 +291,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
     if message.text.lower() == 'спринт':
         await message.answer(texts.t90)
         with open('images/Кроссовки.png', 'rb') as photo:
-            await message.answer_photo(photo, caption=texts.t91)
+            await message.answer_photo(photo)
         await message.answer(texts.t92, reply_markup=kb.endend)
         await State.finish.set()
     
@@ -264,27 +306,34 @@ async def send_welcome(message: types.Message, state: FSMContext):
         data = await state.get_data()
         start_time = int(data.get('start_run_time'))
         await message.answer(texts.generate_run_reult(now - start_time))
-        await message.answer(texts.t93)
-        with open('images/Экипировка.png', 'rb') as photo:
-            await message.answer_photo(photo, caption=texts.t94)
-        with open('fi.mp4', 'rb') as video:
-            await message.answer_video(video)
-        # await message.answer('https://youtu.be/tPNoe27_GKg?feature=shared')
-        await message.answer(texts.t95, reply_markup=kb.gift)
-        await State.gift.set()
+        await message.answer(texts.t93, reply_markup=kb.see_ammo)
+        await State.ammo.set()
         utc_plus_3 = timezone(timedelta(hours=3))
         now_utc3 = datetime.now(utc_plus_3)
         datetime_str = now_utc3.strftime("%Y-%m-%d %H:%M:%S")
-        await aiotable.update_cell(message.from_user.id, 11, datetime_str)
-    
+        await aiotable.update_cell(message.from_user.id, 26, datetime_str)
     else:
         await message.answer(texts.wrong_btn_input, reply_markup=kb.endend)
+
+
+@dp.message_handler(state=State.ammo)
+async def send_welcome(message: types.Message, state: FSMContext):
+    if message.text == buttons.see_ammo:
+        with open('images/Экипировка.png', 'rb') as photo:
+            await message.answer_photo(photo, caption=texts.t94)
+        with open('ekb.mp4', 'rb') as video:
+            await message.answer_video(video, caption='🔗 https://vk.com/video-70227637_456240754')
+        # await message.answer('https://youtu.be/tPNoe27_GKg?feature=shared')
+        await message.answer(texts.t95, reply_markup=kb.gift)
+        await State.gift.set() 
+    else:
+        await message.answer(texts.wrong_btn_input, reply_markup=kb.see_ammo)
 
 
 @dp.message_handler(state=State.gift)
 async def send_welcome(message: types.Message, state: FSMContext):
     if message.text == buttons.get_present:
-        await message.answer(texts.t97)
+        await message.answer(texts.t97, reply_markup=ReplyKeyboardRemove())
         await State.feed.set()
     else:
         await message.answer(texts.wrong_btn_input, reply_markup=kb.gift)
@@ -297,6 +346,13 @@ async def send_welcome(message: types.Message, state: FSMContext):
     except:
         pass
     await message.answer(texts.t98)
+    await State.after_end.set()
+
+
+@dp.message_handler(state=State.after_end)
+async def send_welcome(message: types.Message, state: FSMContext):
+    await message.answer(texts.after_end)
+
     
 
     
