@@ -18,7 +18,7 @@ def is_email(string):
 @dp.message_handler(state=State.enter_name)
 async def send_welcome(message: types.Message, state: FSMContext):
     name = message.text
-    await message.answer(texts.t3, reply_markup=kb.number_kb)
+    await message.answer(texts.t3_1, reply_markup=kb.number_kb)
     await State.waiting_for_number.set()
     await state.update_data(name=name)
     await aiotable.update_cell(message.from_user.id, 4, name)
