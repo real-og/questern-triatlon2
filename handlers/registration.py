@@ -89,8 +89,8 @@ async def send_welcome(message: types.Message, state: FSMContext):
     datetime_str = now_utc3.strftime("%Y-%m-%d %H:%M:%S")
     await aiotable.update_cell(message.from_user.id, 5, email)
 
-    await aiotable.append_user(id, str(username), str(phone_number), str(name), str(email), str(datetime_str))
-    await aiotable.append_user_strict(id, str(username), str(phone_number), str(name), str(email), str(datetime_str))
+    # await aiotable.append_user(id, str(username), str(phone_number), str(name), str(email), str(datetime_str))
+    # await aiotable.append_user_strict(id, str(username), str(phone_number), str(name), str(email), str(datetime_str))
 
 
 

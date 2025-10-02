@@ -28,7 +28,6 @@ async def send_welcome(message: types.Message, state: FSMContext):
 
 @dp.message_handler(commands=['terms'], state="*")
 async def send_welcome(message: types.Message, state: FSMContext):
-    print(message)
     with open('terms.pdf', 'rb') as f:
         await message.answer_document(f)
 
@@ -39,7 +38,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
             await message.answer_photo(photo, caption=texts.t1)
     await message.answer(texts.t2)
     await State.enter_name.set()
-    await State.feed.set()
+    # await State.st1.set()
 
     username = str(message.from_user.username)
     utc_plus_3 = timezone(timedelta(hours=3))

@@ -1,4 +1,4 @@
-from loader import dp, GROUP_CHAT_ID_PHOTO, GROUP_CHAT_ID_FEED
+from loader import dp, GROUP_CHAT_ID_PHOTO, GROUP_CHAT_ID_FEED, bot
 from aiogram import types
 import time
 from aiogram.dispatcher import FSMContext
@@ -15,6 +15,27 @@ from aiogram.types import InputFile
 from aiogram.types import ReplyKeyboardRemove
 from aiogram import types
 import random
+from math import radians, sin, cos, sqrt, atan2
+def is_within_500m(lat_str: str, lon_str: str) -> bool:
+    # фиксированная точка
+    lat0, lon0 = 43.400374, 39.948611  
+    R = 6371000  # радиус Земли в метрах
+
+    # преобразуем строки в float
+    lat, lon = float(lat_str), float(lon_str)
+
+    # переводим градусы в радианы
+    phi1, phi2 = radians(lat0), radians(lat)
+    dphi = radians(lat - lat0)
+    dlambda = radians(lon - lon0)
+
+    # формула гаверсинуса
+    a = sin(dphi/2)**2 + cos(phi1)*cos(phi2)*sin(dlambda/2)**2
+    c = 2 * atan2(sqrt(a), sqrt(1 - a))
+    dist = R * c
+
+    return dist <= 500
+
 
 
 # @dp.message_handler(state=State.finish_velo)
@@ -68,8 +89,8 @@ async def send_welcome(message: types.Message, state: FSMContext):
     
     with open('images_sochi/run1_big.jpeg', 'rb') as photo:
         await message.answer_photo(photo, caption=texts.caption_run)
-    voice = InputFile("audio_sochi/run1.ogg")  
-    await message.answer_voice(voice=voice, reply_markup=ReplyKeyboardRemove())
+    voice = InputFile("audio_sochi/run1_1.ogg")  
+    await message.answer_voice(voice=voice, reply_markup=kb.donthear)
     await State.run1.set()
     await state.update_data(start_run_time=int(time.time()))
     utc_plus_3 = timezone(timedelta(hours=3))
@@ -78,6 +99,42 @@ async def send_welcome(message: types.Message, state: FSMContext):
     await aiotable.update_cell(message.from_user.id, 19, datetime_str)
 
 
+
+@dp.callback_query_handler(state=State.run1)
+async def send_series(callback: types.CallbackQuery, state: FSMContext):
+    await bot.answer_callback_query(callback.id)
+    file = InputFile("audio_sochi/run1.mp3", 'Voice message')
+    await callback.message.answer_audio(file, caption='Надеюсь, так лучше', performer='Max')
+
+@dp.callback_query_handler(state=State.run2)
+async def send_series(callback: types.CallbackQuery, state: FSMContext):
+    await bot.answer_callback_query(callback.id)
+    file = InputFile("audio_sochi/run2.mp3", 'Voice message')
+    await callback.message.answer_audio(file, caption='Надеюсь, так лучше', performer='Max')
+
+@dp.callback_query_handler(state=State.run3)
+async def send_series(callback: types.CallbackQuery, state: FSMContext):
+    await bot.answer_callback_query(callback.id)
+    file = InputFile("audio_sochi/run3.mp3", 'Voice message')
+    await callback.message.answer_audio(file, caption='Надеюсь, так лучше', performer='Max')
+
+@dp.callback_query_handler(state=State.run4)
+async def send_series(callback: types.CallbackQuery, state: FSMContext):
+    await bot.answer_callback_query(callback.id)
+    file = InputFile("audio_sochi/run4.mp3", 'Voice message')
+    await callback.message.answer_audio(file, caption='Надеюсь, так лучше', performer='Max')
+
+@dp.callback_query_handler(state=State.run5)
+async def send_series(callback: types.CallbackQuery, state: FSMContext):
+    await bot.answer_callback_query(callback.id)
+    file = InputFile("audio_sochi/run5.mp3", 'Voice message')
+    await callback.message.answer_audio(file, caption='Надеюсь, так лучше', performer='Max')
+
+@dp.callback_query_handler(state=State.run6)
+async def send_series(callback: types.CallbackQuery, state: FSMContext):
+    await bot.answer_callback_query(callback.id)
+    file = InputFile("audio_sochi/run6.mp3", 'Voice message')
+    await callback.message.answer_audio(file, caption='Надеюсь, так лучше', performer='Max')
 
 
 @dp.message_handler(content_types=['any'], state=State.run1)
@@ -89,10 +146,6 @@ async def handle_photo(message: types.Message):
             await message.answer_photo(photo)
         await message.answer('Готов двигаться дальше? Жми на кнопку ⤵️', reply_markup=kb.go_next)
         await State.run_before2.set()
-        utc_plus_3 = timezone(timedelta(hours=3))
-        now_utc3 = datetime.now(utc_plus_3)
-        datetime_str = now_utc3.strftime("%Y-%m-%d %H:%M:%S")
-        await aiotable.update_cell(message.from_user.id, 17, datetime_str)
     else:
         await message.answer(texts.need_photo)
 
@@ -103,8 +156,8 @@ async def send_welcome(message: types.Message, state: FSMContext):
         return
     with open('images_sochi/run2.jpeg', 'rb') as photo:
         await message.answer_photo(photo, caption=texts.caption_run)
-    voice = InputFile("audio_sochi/run2.ogg")  
-    await message.answer_voice(voice=voice, reply_markup=ReplyKeyboardRemove())
+    voice = InputFile("audio_sochi/run2_1.ogg")  
+    await message.answer_voice(voice=voice, reply_markup=kb.donthear)
     await State.run2.set()
 
 
@@ -128,8 +181,8 @@ async def send_welcome(message: types.Message, state: FSMContext):
         return
     with open('images_sochi/run3.jpeg', 'rb') as photo:
         await message.answer_photo(photo, caption=texts.caption_run)
-    voice = InputFile("audio_sochi/run3.ogg")  
-    await message.answer_voice(voice=voice, reply_markup=ReplyKeyboardRemove())
+    voice = InputFile("audio_sochi/run3_1.ogg")  
+    await message.answer_voice(voice=voice, reply_markup=kb.donthear)
     await State.run3.set()
 
 
@@ -153,8 +206,8 @@ async def send_welcome(message: types.Message, state: FSMContext):
         return
     with open('images_sochi/run4.jpeg', 'rb') as photo:
         await message.answer_photo(photo, caption=texts.caption_run)
-    voice = InputFile("audio_sochi/run4.ogg")  
-    await message.answer_voice(voice=voice, reply_markup=ReplyKeyboardRemove())
+    voice = InputFile("audio_sochi/run4_1.ogg")  
+    await message.answer_voice(voice=voice, reply_markup=kb.donthear)
     await State.run4.set()
 
 
@@ -179,8 +232,8 @@ async def send_welcome(message: types.Message, state: FSMContext):
         return
     with open('images_sochi/run5.jpeg', 'rb') as photo:
         await message.answer_photo(photo, caption=texts.caption_run)
-    voice = InputFile("audio_sochi/run5.ogg")  
-    await message.answer_voice(voice=voice, reply_markup=ReplyKeyboardRemove())
+    voice = InputFile("audio_sochi/run5_1.ogg")  
+    await message.answer_voice(voice=voice, reply_markup=kb.donthear)
     await State.run5.set()
 
 
@@ -204,8 +257,8 @@ async def send_welcome(message: types.Message, state: FSMContext):
         return
     with open('images_sochi/run6.jpeg', 'rb') as photo:
         await message.answer_photo(photo, caption=texts.caption_run)
-    voice = InputFile("audio_sochi/run6.ogg")  
-    await message.answer_voice(voice=voice, reply_markup=ReplyKeyboardRemove())
+    voice = InputFile("audio_sochi/run6_1.ogg")  
+    await message.answer_voice(voice=voice, reply_markup=kb.donthear)
     await State.run6.set()
 
 
@@ -471,10 +524,34 @@ async def send_welcome(message: types.Message, state: FSMContext):
     if not message.location:
         await message.answer('Поделитесь геолокацией', reply_markup=kb.geo)
         return
-    print(message)
-    with open('images/kross.png', 'rb') as photo:
-        await message.answer_photo(photo, caption=texts.caption_kross, reply_markup=kb.endend)
-        await State.finish.set()
+    lat = message.location.latitude
+    lon = message.location.longitude
+    if is_within_500m(str(lat), str(lon)):
+        with open('images/kross.png', 'rb') as photo:
+            await message.answer_photo(photo, caption=texts.caption_kross, reply_markup=kb.endend)
+            await State.finish.set()
+    else:
+        await message.answer(random.choice(texts.wrong_geo), reply_markup=kb.geo)
+        await State.bad_geo.set()
+
+
+@dp.message_handler(state=State.bad_geo, content_types=['any'])
+async def send_welcome(message: types.Message, state: FSMContext):
+    if not message.location:
+        await message.answer('Поделитесь геолокацией', reply_markup=kb.geo)
+        return
+    lat = message.location.latitude
+    lon = message.location.longitude
+    if is_within_500m(str(lat), str(lon)):
+        with open('images/kross.png', 'rb') as photo:
+            await message.answer_photo(photo, caption=texts.caption_kross, reply_markup=kb.endend)
+            await State.finish.set()
+    else:
+        await message.answer("Возможно, это сбой GPS. Будем считать, что ты на месте! 👌")
+        with open('images/kross.png', 'rb') as photo:
+            await message.answer_photo(photo, caption=texts.caption_kross, reply_markup=kb.endend)
+            await State.finish.set()
+
     
 
 
@@ -491,7 +568,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
         utc_plus_3 = timezone(timedelta(hours=3))
         now_utc3 = datetime.now(utc_plus_3)
         datetime_str = now_utc3.strftime("%Y-%m-%d %H:%M:%S")
-        await aiotable.update_cell(message.from_user.id, 26, datetime_str)
+        await aiotable.update_cell(message.from_user.id, 20, datetime_str)
     else:
         await message.answer(texts.wrong_btn_input, reply_markup=kb.endend)
 
@@ -504,7 +581,8 @@ async def send_welcome(message: types.Message, state: FSMContext):
         # with open('ekb.mp4', 'rb') as video:
         #     await message.answer_video(video, caption='🔗 https://vk.com/video-70227637_456240754')
         # await message.answer('https://youtu.be/tPNoe27_GKg?feature=shared')
-        await message.answer(texts.t95, reply_markup=kb.gift)
+        await message.answer(texts.t95, disable_web_page_preview=True)
+        await message.answer(texts.t96, reply_markup=kb.gift)
         await State.gift.set() 
     else:
         await message.answer(texts.wrong_btn_input, reply_markup=kb.see_ammo)
@@ -531,7 +609,7 @@ async def send_welcome(message: types.Message, state: FSMContext):
 
 @dp.message_handler(state=State.after_end)
 async def send_welcome(message: types.Message, state: FSMContext):
-    await message.answer(texts.after_end)
+    await message.answer(texts.after_end, disable_web_page_preview=True)
 
     
 

@@ -94,3 +94,4 @@ class State(StatesGroup):
 
     enter_geo = State()
     before_geo = State()
+    bad_geo = State()

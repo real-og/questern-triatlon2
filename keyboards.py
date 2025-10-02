@@ -116,3 +116,7 @@ geo_btn = KeyboardButton(buttons.geo, request_location=True)
 geo = ReplyKeyboardMarkup([[geo_btn]],
                                      resize_keyboard=True,
                                      one_time_keyboard=True,)
+
+donthear = InlineKeyboardMarkup()
+dont_btn = InlineKeyboardButton(text='Не слышу', callback_data='aa')
+donthear.row(dont_btn)
