@@ -103,3 +103,16 @@ early_finish = ReplyKeyboardMarkup([[buttons.end_early, buttons.continue_quest]]
 see_ammo = ReplyKeyboardMarkup([[buttons.see_ammo]],
                                      resize_keyboard=True,
                                      one_time_keyboard=True)
+
+drive_next = ReplyKeyboardMarkup([[buttons.drive_next]],
+                                     resize_keyboard=True,
+                                     one_time_keyboard=True)
+
+place = ReplyKeyboardMarkup([[buttons.place]],
+                                     resize_keyboard=True,
+                                     one_time_keyboard=True)
+
+geo_btn = KeyboardButton(buttons.geo, request_location=True)
+geo = ReplyKeyboardMarkup([[geo_btn]],
+                                     resize_keyboard=True,
+                                     one_time_keyboard=True,)

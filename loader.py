@@ -9,8 +9,8 @@ logging.basicConfig(level=logging.WARNING)
 ADMIN_ID = str(os.environ.get('ADMIN_ID'))
 BOT_TOKEN = str(os.environ.get('BOT_TOKEN'))
 SHEET_LINK = str(os.environ.get('SHEET_LINK'))
-GROUP_CHAT_ID_PHOTO = str(os.environ.get('GROUP_CHAT_ID_PHOTO'))
-GROUP_CHAT_ID_FEED = str(os.environ.get('GROUP_CHAT_FEEDBACK'))
+GROUP_CHAT_ID_PHOTO = '-4983295124'
+GROUP_CHAT_ID_FEED = '-4977101733'
 
 storage = RedisStorage2(db=2)
 

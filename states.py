@@ -73,3 +73,24 @@ class State(StatesGroup):
     run22 = State()
     ammo = State()
     after_end = State()
+
+    wait_velo_ans1 = State()
+    wait_velo_ans2 = State()
+    wait_velo_ans3 = State()
+    wait_velo_ans4 = State()
+    wait_velo_ans5 = State()
+
+    before_velo_2 = State()
+    before_velo_3 = State()
+    before_velo_4 = State()
+    before_velo_5 = State()
+
+    run_before2 = State()
+    run_before3 = State()
+    run_before4 = State()
+    run_before5 = State()
+    run_before6 = State()
+    run_before7 = State()
+
+    enter_geo = State()
+    before_geo = State()
