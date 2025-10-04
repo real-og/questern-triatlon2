@@ -44,8 +44,9 @@ async def send_welcome(message: types.Message, state: FSMContext):
     if message.text != buttons.start_swim:
         await message.answer(texts.wrong_btn_input, reply_markup=kb.start_swim)
         return
-
-    await message.answer(texts.t19, reply_markup=kb.found_qr)
+    await message.answer(texts.t19)
+    with open('images_sochi/additional_hint.jpg', 'rb') as photo:
+        await message.answer_photo(photo, caption=texts.t19_caption, reply_markup=kb.found_qr)
     await State.state1.set()
 
 @dp.message_handler(state=State.state1)
