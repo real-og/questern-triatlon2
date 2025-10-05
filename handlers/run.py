@@ -582,19 +582,20 @@ async def send_welcome(message: types.Message, state: FSMContext):
         #     await message.answer_video(video, caption='🔗 https://vk.com/video-70227637_456240754')
         # await message.answer('https://youtu.be/tPNoe27_GKg?feature=shared')
         await message.answer(texts.t95, disable_web_page_preview=True)
-        await message.answer(texts.t96, reply_markup=kb.gift)
-        await State.gift.set() 
+        await message.answer(texts.t97, reply_markup=ReplyKeyboardRemove())
+        # await message.answer(texts.t96, reply_markup=kb.gift)
+        await State.feed.set() 
     else:
         await message.answer(texts.wrong_btn_input, reply_markup=kb.see_ammo)
 
 
-@dp.message_handler(state=State.gift)
-async def send_welcome(message: types.Message, state: FSMContext):
-    if message.text == buttons.get_present:
-        await message.answer(texts.t97, reply_markup=ReplyKeyboardRemove())
-        await State.feed.set()
-    else:
-        await message.answer(texts.wrong_btn_input, reply_markup=kb.gift)
+# @dp.message_handler(state=State.gift)
+# async def send_welcome(message: types.Message, state: FSMContext):
+#     if message.text == buttons.get_present:
+#         await message.answer(texts.t97, reply_markup=ReplyKeyboardRemove())
+#         await State.feed.set()
+#     else:
+#         await message.answer(texts.wrong_btn_input, reply_markup=kb.gift)
 
 
 @dp.message_handler(state=State.feed)
