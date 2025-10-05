@@ -37,8 +37,8 @@ async def send_welcome(message: types.Message, state: FSMContext):
         #     caption='🔗 https://vk.com/video-70227637_456240754'
         # )
         await message.answer(texts.t95, disable_web_page_preview=True)
-        await message.answer(texts.t49_2, reply_markup=kb.gift)
-        await State.gift.set()
+        await message.answer(texts.t97, reply_markup=ReplyKeyboardRemove())
+        await State.feed.set() 
         utc_plus_3 = timezone(timedelta(hours=3))
         now_utc3 = datetime.now(utc_plus_3)
         datetime_str = now_utc3.strftime("%Y-%m-%d %H:%M:%S")
